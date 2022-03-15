@@ -24,7 +24,6 @@ int main() {
 	} else {
 		printf ("\nTen ho la : %s", tenho_2);
 	}
-
 	
 	return 0;
 }
