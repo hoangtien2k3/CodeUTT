@@ -1,4 +1,3 @@
-
 /*
     Viết chương trình nhập vào 6 số a, b, c, d, e, f . Giai và biện luận hệ phương trình có dạng:
         a.x + b.y = c
