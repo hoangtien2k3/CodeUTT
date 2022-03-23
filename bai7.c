@@ -2,6 +2,7 @@
 // in ra ma trận bằng ký tự *
 
 #include<stdio.h>
+#include<conio.h>
 
 void LoopFor_InC (int m, int n, int a[][10]) {
     for (int i=0; i<m ;i++){
@@ -20,5 +21,6 @@ int main() {
     scanf ("%d", &n);
     LoopFor_InC(m, n, a);
 
+    getch();
     return 0;
 }

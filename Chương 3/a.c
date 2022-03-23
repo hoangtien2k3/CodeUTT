@@ -1,6 +1,7 @@
 
 // Tính : S = 1/10 + 1/20 + ... + 1/(10*n);
 // nhập vào số nguyên n => trả về kết quả kiểu float
+
 #include<stdio.h>
 #include<math.h>
 
