@@ -1,4 +1,7 @@
 
+
+// tính trung bình cộng các số chẵn từ 1->10
+
 #include<stdio.h>
 
 int Sum_Array(int n){
@@ -13,10 +16,11 @@ int Sum_Array(int n){
     return sum;
 }
 
-int main() {
+int main() 
     int n;
     printf ("Nhap vao n = ");
     scanf ("%d", &n);
     printf ("Sum = %d", Sum_Array(n));
+
     return 0;
 }
