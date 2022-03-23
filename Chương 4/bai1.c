@@ -21,16 +21,13 @@ struct hodan {
     int so_dien_tt;
 } p1[3];
 
-
 int main() {
-
     printf ("NHAP VAO THONG TIN 3 HO_DAN: ");
     for (int i=0; i<3; i++) {
-        printf ("\nNhap vao ten_chu_ho %d: ", i); scanf ("%s", p1[i].ten_chu_ho);
+        printf ("\nNhap vao ten_chu_ho %d: ", i+1); scanf ("%s", p1[i].ten_chu_ho);
         printf ("Nhap vao so_dau: "); scanf ("%d", &p1[i].so_dau);
         printf ("Nhap vao so_cuoi: "); scanf ("%d", &p1[i].so_cuoi);
     }
-    
     for (int i=0; i<3; i++) {
         p1[i].so_dien_tt = p1[i].so_cuoi - p1[i].so_dau;
         if ( p1[i].so_dien_tt < 100) {
@@ -41,18 +38,14 @@ int main() {
             p1[i].thanh_tien = p1[i].so_dien_tt * 3000;
         }
     }
-
     for (int i=0; i<3; i++) {
-        printf ("\nThanh_tien cua ho dan %d: ", i);
+        printf ("\nThanh_tien cua ho dan %d: ", i+1);
         printf ("%d ", p1[i].thanh_tien );
     }
-
     printf ("\nTHONG TIN CHU HO TIEU_THU_DIEN NHIEU NHAT: ");
     int Max = (p1[0].thanh_tien > p1[1].thanh_tien) ? p1[0].thanh_tien : p1[1].thanh_tien;
     Max = (Max > p1[2].thanh_tien) ? Max : p1[2].thanh_tien;
     printf ("%d", Max);
-
-    
-
     return 0;
 }
+

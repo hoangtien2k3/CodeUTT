@@ -1,39 +1,38 @@
 
+// dùng switch_case
+////////
 #include<stdio.h>
 #include<conio.h>
 
-int NhapVao (int a, int b, char c) {
-    switch (c) {
+void NhapVao(float a, float b, char x) {
+    switch(x) {
         case '+':
-            printf ("Tong a + b = %d", a + b);
+            printf ("Tong %.4f + %.4f = %.4f", a, b, a + b);
             break;
         case '-':
-            printf ("Hieu a - b = %d", a - b);
+            printf ("Hieu %.4f - %.4f = %f", a, b, a - b);
             break;
         case '*':
-            printf ("Tich a * b = %d", a * b);
+            printf ("Tich %.4f * %.4f = %.4f", a, b, a * b);
             break;
         case '/':
-            if (b == 0) {
-                printf ("Loi, khong tinh duoc");
-            } else  {
-                printf ("Thuong a/b = %d", a/ b);
-            }
+            printf ("Thuong %.4f / %.4f = %.4f", a, b, a / b);
+            break;
+        default:
+            printf ("Error:");
             break;
     }
-    return a, b;
 }
 
 int main() {
-    int a, b;
-    char c;
-    printf ("Nhap vao a = "); scanf ("%d", &a);
-    fflush(stdin);
-    printf ("Nhap vao phep toan (+,-,*,/) : ");
-    scanf ("%c", c);
-    // c = getchar();
-    printf ("Nhap vao b = "); scanf ("%d", &b);
-    NhapVao(a, b, c);
-    return 0;
+    float a, b;
+    printf ("Nhap vao a = "); scanf ("%f", &a);
+    char x;
+    fflush(stdin); // xóa bộ nhớ đệm ( nếu không có thì nó sẽ trôi câu lệnh )
+    printf ("Nhap vao (+, -, *, /): ");
+    x = getchar();
+    printf ("Nhap vao b = ");
+    scanf ("%f", &b);
+    NhapVao(a, b, x);
+    return  0;
 }
-
