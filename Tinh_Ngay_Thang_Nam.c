@@ -1,71 +1,35 @@
 
+// Nhập vào month và year. Kiểm tra xem tháng đó có bao nhiêu ngày.
 
 #include<stdio.h>
+#include<stdbool.h>
 
-int ngay(int month, int year)
-{
-    if (month < 0 || month > 12 || year <= 0 || year > 100000)
-    {
-        printf("INVALID");
-    }
-    else
-    {
-        switch (month)
-        {
-        case 1:
-            printf("Co so ngay la 31");
+bool CheckNamNhuan(int year) {
+    return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
+}
+
+int ngay(int month, int year) {
+    int NgayTrongNam;
+    switch (month) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            NgayTrongNam = 31;
             break;
-        case 3:
-            printf("Co so ngay la 31");
-            break;
-        case 4:
-            printf("Co so ngay la 30");
-            break;
-        case 5:
-            printf("Co so ngay la 31");
-            break;
-        case 6:
-            printf("Co so ngay la 30");
-            break;
-        case 7:
-            printf("Co so ngay la 31");
-            break;
-        case 8:
-            printf("Co so ngay la 31");
-            break;
-        case 9:
-            printf("Co so ngay la 30");
-            break;
-        case 10:
-            printf("Co so ngay la 31");
-            break;
-        case 11:
-            printf("Co so ngay la 30");
-            break;
-        case 12:
-            printf ("Co so ngay la 31");
+        case 4: case 6: case 9: case 11:
+            NgayTrongNam = 30;
             break;
         default:
-            if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
-            {
-                printf("Co so ngay la 29");
-            }
-            else
-            {
-                printf("Co so ngay la 28");
-            }
-            break;
-        }
+            return (CheckNamNhuan(year))?(NgayTrongNam = 29):(NgayTrongNam = 28);
     }
-    return 0;
+    return NgayTrongNam;
 }
 
 int main(){
-        int month, year;
-        printf ("Nhap vao month = ");
-        scanf ("%d", &month);
-        printf ("Nhap vao year = ");
-        scanf ("%d", &year);
-        ngay(month, year);
-        return 0;
+    int month, year;
+    printf ("Nhap vao month = ");
+    scanf ("%d", &month);
+    printf ("Nhap vao year = ");
+    scanf ("%d", &year);
+    printf ("Co %d ngay!", ngay(month, year));
+    return 0;
 }
+

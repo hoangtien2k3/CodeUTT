@@ -1,5 +1,6 @@
 
 // đảo ngược số nguyên n nhập từ bàn phím
+
 // 12345 -> 54321
 #include<stdio.h>
 #include<stdlib.h>
