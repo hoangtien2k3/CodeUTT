@@ -11,9 +11,8 @@
             *   *   *               2  |    i=2, j=3 ->[3, 5] ngược loại in  "   "
         *   *   *   *   *           3  |    i=3, j=5 ->[2, 6] ngược lại in "   "
     *   *   *   *   *   *   *       4  |    i=4, j=7 ->[1, 7] 
-
+    
     1   2   3   4   5   6   7               [a, b] = [h-i+1, h+i-1];
-
 */
 void Tam_Giac_Can(int h) {
     for (int i = 1; i <= h; i++) {
@@ -28,6 +27,26 @@ void Tam_Giac_Can(int h) {
 	} 
 }
 
+/*  a.1 vẽ tam giác cân
+    1   2   3   4   5   6   7
+
+    *   *   *   *   *   *   *
+        *   *   *   *   *
+            *   *   *
+                *
+*/
+void Tam_Giac_Can_Nguoc(int h) {
+    for (int i=h; i>=1; i--) {
+        for (int j=2*h -1; j>=1; j--) {
+            if (h-i+1 <= j && j <= h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
 
 
 
@@ -55,6 +74,30 @@ void Tam_Giac_Can_Rong(int h) {
     }
 }
 
+/* b.1 vẽ tam giác cân rỗng ngược.
+    *   *   *   *   *   *   *
+        *               *
+            *       *
+                *
+*/
+void Tam_Giac_Can_Rong_Nguoc(int h) {
+    for (int i=1; i<=2*h-1; i++) {
+        printf (" * ");
+    }
+    printf ("\n");
+    for (int i=h-1; i>=1; i--) {
+        for (int j=2*h-1; j >=1; j--) {
+            if (j == h-i+1 || j==h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
+
+
 
 
 
@@ -66,12 +109,27 @@ void Tam_Giac_Can_Rong(int h) {
     *   *   *   *           i=4, j=1,2,3,4
     
     1   2   3   4
-
 */
-
 void Tam_Giac_Vuong_Can(int h) {
     for (int i = 1; i <= h; i++) {
         for (int j = 1; j <= i; j++) {
+            printf (" * ");
+        }
+        printf ("\n");
+    }
+}
+
+/*  c.1 tam giác vuông cân đặc ngược
+    1   2   3   4
+
+    *   *   *   *
+    *   *   *
+    *   *
+    * 
+*/
+void Tam_Giac_Vuong_Can_Nguoc(int h) {
+    for(int i=h; i>=1; i--) {
+        for (int j=i; j>=1; j--) {
             printf (" * ");
         }
         printf ("\n");
@@ -82,13 +140,11 @@ void Tam_Giac_Vuong_Can(int h) {
 
 
 /* d. vẽ tam giác vuông cân rỗng.
-
     *                       i=1, j=1
     *   *                   i=2, j=1,2
     *       *               i=3, j=1,3
     *           *           i=4, j=1,4
     *   *   *   *   *       i=5, j=1,2,3,4,5
-    
     1   2   3   4   5
 */
 void Tam_Giac_Vuong_Can_Rong(int h) {
@@ -107,7 +163,110 @@ void Tam_Giac_Vuong_Can_Rong(int h) {
     }
 }
 
+/*  d.1 vẽ tam giác vuông cân rỗng ngược.
+    1   2   3   4   5
 
+    *   *   *   *   *
+    *           *
+    *       *
+    *   *
+    * 
+
+*/
+
+void Tam_Giac_Vuong_Can_Rong_Nguoc(int h) {
+    for (int i=1; i<=h; i++) {
+        printf (" * ");
+    }
+    printf ("\n");
+    for (int i=h-1; i >=1; i--) {
+        for (int j=i; j>=1; j--) {
+            if (j == 1 || j == i) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
+
+
+/*  
+    vẽ hình thoi đặc
+                *
+            *   *   *
+        *   *   *   *   *
+    *   *   *   *   *   *   *
+        *   *   *   *   *
+            *   *   *
+                *
+    cách làm: vẽ hai hình chóp gép vào nhau tạo ra hình thoi
+*/
+void Hinh_Thoi (int h) {
+    for (int i=1; i<=h; i++) {
+        for (int j=1; j<=2*h-1; j++) {
+            if (h-i+1 <= j && j <= h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+    for (int i=h-1; i>=1; i--) {
+        for (int j=2*h-1; j>=1; j--) {
+            if (h-i+1 <= j && j <= h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
+
+/*  vẽ hình chữ nhật.
+    *   *   *   *   *   *
+    *   *   *   *   *   *
+    *   *   *   *   *   *
+    *   *   *   *   *   *
+*/
+void Hinh_Chu_Nhat(int h) {
+    for (int i=1; i<=h; i++) {
+        for (int j=1; j<=h; j++) {
+            printf (" * ");
+        }
+        printf ("\n");
+    }
+}
+
+
+/*  hình chữ nhật rỗng
+    *   *   *   *   *   *
+    *                   *
+    *                   *
+    *   *   *   *   *   *
+*/
+void Hinh_Chu_Nhat_Rong(int h) {
+    for (int i=1; i<=h ; i++) {
+        printf (" * ");
+    }
+    printf ("\n");
+    for (int i=1; i<h-1; i++) {
+        for (int j=1; j <= h; j++) {
+            if (j == 1 || j == h) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+    for (int i=1; i <=h; i++) {
+        printf (" * ");
+    }
+}
 
 
 int main() {
@@ -115,21 +274,39 @@ int main() {
     do {
         printf ("\nNhap vao do dai h = ");
         scanf("%d", &h);
-        if (h < 0) {
-            printf ("Nhap lai chieu cao h: ");
-        }
-    }while(h < 0);
+    }while(h < 0 && printf("Nhap lai chieu cao h: "));
+    printf ("\n");
 
     Tam_Giac_Can(h);
-    printf ("\n\n");
+    printf ("\n\n\n");
+
+    Tam_Giac_Can_Nguoc(h);
+    printf("\n\n\n");
 
     Tam_Giac_Can_Rong(h);
-    printf ("\n\n");
+    printf ("\n\n\n");
+
+    Tam_Giac_Can_Rong_Nguoc(h);
+    printf ("\n\n\n");
 
     Tam_Giac_Vuong_Can(h);
-    printf ("\n\n");
+    printf ("\n\n\n");
+
+    Tam_Giac_Vuong_Can_Nguoc(h);
+    printf ("\n\n\n");
 
     Tam_Giac_Vuong_Can_Rong(h);
-    printf ("\n\n");
+    printf ("\n\n\n");
 
+    Tam_Giac_Vuong_Can_Rong_Nguoc(h);
+    printf ("\n\n\n");
+
+    Hinh_Thoi(h);
+    printf ("\n\n\n");
+
+    Hinh_Chu_Nhat(h);
+    printf ("\n\n\n");
+
+    Hinh_Chu_Nhat_Rong(h);
+    printf ("\n\n\n");
 }
