@@ -226,13 +226,48 @@ void Hinh_Thoi (int h) {
     }
 }
 
-/*  vẽ hình chữ nhật.
-    *   *   *   *   *   *
-    *   *   *   *   *   *
-    *   *   *   *   *   *
-    *   *   *   *   *   *
+
+/*  vẽ hình thoi rỗng.
+    1   2   3   4   5   6   7
+                *
+            *       *
+        *               *
+    *                       *
+        *               *
+            *       *
+                *
 */
-void Hinh_Chu_Nhat(int h) {
+
+void Hinh_Thoi_Rong(int h) {
+    for (int i=1; i<=h; i++) {
+        for (int j = 1; j <= 2*h-1; j++) {
+            if (j == h-i+1 || j == h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+    for (int i = h-1; i >=1; i--) {
+        for (int j = 2*h-1; j >=1; j--) {
+            if (j == h-i+1 || j == h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
+
+/*  vẽ hình vuông.
+    *   *   *   *   
+    *   *   *   *   
+    *   *   *   *   
+    *   *   *   *   
+*/
+void Hinh_Vuong(int h) {
     for (int i=1; i<=h; i++) {
         for (int j=1; j<=h; j++) {
             printf (" * ");
@@ -242,13 +277,13 @@ void Hinh_Chu_Nhat(int h) {
 }
 
 
-/*  hình chữ nhật rỗng
-    *   *   *   *   *   *
-    *                   *
-    *                   *
-    *   *   *   *   *   *
+/*  hình vuông rỗng
+    *   *   *   *
+    *           *
+    *           *
+    *   *   *   *
 */
-void Hinh_Chu_Nhat_Rong(int h) {
+void Hinh_Vuong_Rong(int h) {
     for (int i=1; i<=h ; i++) {
         printf (" * ");
     }
@@ -267,6 +302,50 @@ void Hinh_Chu_Nhat_Rong(int h) {
         printf (" * ");
     }
 }
+
+
+
+/*  Vẽ hình bình hành
+    1   2   3   4   5   6   7
+                *   *   *   *
+            *   *   *   *
+        *   *   *   *
+    *   *   *   *
+
+*/
+void Hinh_Binh_Hanh(int h) {
+    for (int i = 1; i <= h; i++) {
+        for (int j = 1; j <= 2*h - 1; j++) {
+            if (j >= h-i+1 && j <= 2*h-i) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
+
+/*  vẽ Hình bình hành ngược
+    1   2   3   4   5   6   7
+    *   *   *   *
+        *   *   *   *
+            *   *   *   *
+                *   *   *   *
+*/
+void Hinh_Binh_Hanh_Nguoc(int h) {
+    for (int i = h; i >=1; i--) {
+        for (int j = 1; j <= 2*h - 1; j++) {
+            if (j >= h-i+1 && j <= 2*h-i) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
+
 
 
 int main() {
@@ -304,9 +383,23 @@ int main() {
     Hinh_Thoi(h);
     printf ("\n\n\n");
 
-    Hinh_Chu_Nhat(h);
+    Hinh_Thoi_Rong(h);
+    printf("\n\n\n");
+
+    Hinh_Vuong(h);
     printf ("\n\n\n");
 
-    Hinh_Chu_Nhat_Rong(h);
+    Hinh_Vuong_Rong(h);
     printf ("\n\n\n");
+
+    Hinh_Binh_Hanh(h);
+    printf ("\n\n\n");
+
+    Hinh_Binh_Hanh_Nguoc(h);
+    printf ("\n\n\n");
+
+
+
+
+
 }
