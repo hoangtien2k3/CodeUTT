@@ -19,6 +19,7 @@ int Sum_Array_In_C (int x, int n) {
     return S;// 100
 }
 
+
 // tính tổng CANBAC2(2) + CANBAC2(3) + ... + CANBAC2(n);
 int Tinh_Sum (int n) {
     int sum = 0;
