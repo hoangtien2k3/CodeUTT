@@ -15,6 +15,7 @@
     1   2   3   4   5   6   7               [a, b] = [h-i+1, h+i-1];
 */
 void Tam_Giac_Can(int h) {
+    printf ("Hinh_1:\t\n");
     for (int i = 1; i <= h; i++) {
 		for (int j = 1; j <= 2 * h - 1; j++) {
 			if (h - i  + 1 <= j && j <= h + i - 1) { // [a, b] = [h-i+1, h+i-1];
@@ -36,6 +37,7 @@ void Tam_Giac_Can(int h) {
                 *
 */
 void Tam_Giac_Can_Nguoc(int h) {
+    printf ("Hinh_2:\t\n\n");
     for (int i=h; i>=1; i--) {
         for (int j=2*h -1; j>=1; j--) {
             if (h-i+1 <= j && j <= h+i-1) {
@@ -59,6 +61,7 @@ void Tam_Giac_Can_Nguoc(int h) {
     1   2   3   4   5   6   7         
 */
 void Tam_Giac_Can_Rong(int h) {
+    printf ("Hinh_3:\n");
     for (int i = 1; i < h; i++) { // tại sao i < h , mục đích để nó không duyệt vòng cuối cùng
 		for (int j = 1; j <= 2 * h - 1; j++) {
 			if (j == (h - i  + 1) || j == (h + i - 1)) { // [a, b] = [h-i+1, h+i-1];
@@ -81,6 +84,7 @@ void Tam_Giac_Can_Rong(int h) {
                 *
 */
 void Tam_Giac_Can_Rong_Nguoc(int h) {
+    printf ("Hinh_4:\n\n");
     for (int i=1; i<=2*h-1; i++) {
         printf (" * ");
     }
@@ -111,6 +115,7 @@ void Tam_Giac_Can_Rong_Nguoc(int h) {
     1   2   3   4
 */
 void Tam_Giac_Vuong_Can(int h) {
+    printf ("Hinh_5:\t\n\n");
     for (int i = 1; i <= h; i++) {
         for (int j = 1; j <= i; j++) {
             printf (" * ");
@@ -128,6 +133,7 @@ void Tam_Giac_Vuong_Can(int h) {
     * 
 */
 void Tam_Giac_Vuong_Can_Nguoc(int h) {
+    printf ("Hinh_6:\t\n\n");
     for(int i=h; i>=1; i--) {
         for (int j=i; j>=1; j--) {
             printf (" * ");
@@ -148,6 +154,7 @@ void Tam_Giac_Vuong_Can_Nguoc(int h) {
     1   2   3   4   5
 */
 void Tam_Giac_Vuong_Can_Rong(int h) {
+    printf ("Hinh_7:\t\n\n");
     for (int i = 1; i < h; i++) {
         for (int j = 1; j <= i; j++) {
             if (j == 1 || j == i) {
@@ -175,6 +182,7 @@ void Tam_Giac_Vuong_Can_Rong(int h) {
 */
 
 void Tam_Giac_Vuong_Can_Rong_Nguoc(int h) {
+    printf ("Hinh_8:\t\n\n");
     for (int i=1; i<=h; i++) {
         printf (" * ");
     }
@@ -204,6 +212,7 @@ void Tam_Giac_Vuong_Can_Rong_Nguoc(int h) {
     cách làm: vẽ hai hình chóp gép vào nhau tạo ra hình thoi
 */
 void Hinh_Thoi (int h) {
+    printf ("Hinh_9:\t\n\n");
     for (int i=1; i<=h; i++) {
         for (int j=1; j<=2*h-1; j++) {
             if (h-i+1 <= j && j <= h+i-1) {
@@ -226,6 +235,81 @@ void Hinh_Thoi (int h) {
     }
 }
 
+/*
+    1   2   3   4   5   6   7
+    *   *   *   *   *   *   *
+        *   *   *   *   *
+            *   *   *
+                *
+            *   *   *
+        *   *   *   *   *
+    *   *   *   *   *   *   *
+*/
+
+void Hinh_Chong_Nhau (int h) {
+    printf ("Hinh_10:\t\n\n");
+    for (int i=h; i>=1; i--) {
+        for (int j=2*h-1; j>=1; j--) {
+            if (h-i+1 <= j && j <= h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+    for (int i=2; i<=h; i++) {
+        for (int j=1; j<=2*h-1; j++) {
+            if (h-i+1 <= j && j <= h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
+
+/*
+    1   2   3   4   5   6   7
+    *   *   *   *   *   *   *
+        *               *
+            *       *
+                *
+            *       *
+        *               *
+    *   *   *   *   *   *   *
+*/
+void Hinh_Chong_Nhau_Rong (int h) {
+    printf ("Hinh_11:\t\n\n");
+    for (int i=2*h-1; i>=1; i--) {
+        printf (" * ");
+    }
+    printf ("\n");
+    for (int i=h-1; i>=1; i--) {
+        for (int j=2*h-1; j>=1; j--) {
+            if (h-i+1 == j || j == h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+    for (int i=2; i < h; i++) {
+        for (int j=1; j<=2*h-1; j++) {
+            if (h-i+1 == j || j == h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+    for (int i=2*h-1; i>=1; i--) {
+        printf (" * ");
+    }
+}
 
 /*
     *   *   *   *   *   *   *   
@@ -237,6 +321,7 @@ void Hinh_Thoi (int h) {
     *   *   *   *   *   *   *
 */
 void Hinh_Thoi_Rong_Trong(int h) {
+    printf ("Hinh_12:\t\n\n");
     for (int i=1; i<=h; i++) {
         for (int j = 1; j <= 2*h-1; j++) {
             if (j == h-i+1 || j == h+i-1) {
@@ -273,6 +358,7 @@ void Hinh_Thoi_Rong_Trong(int h) {
                 *
 */
 void Hinh_Thoi_Rong(int h) {
+    printf ("Hinh_13:\t\n\n");
     for (int i=1; i<=h; i++) {
         for (int j = 1; j <= 2*h-1; j++) {
             if (j == h-i+1 || j == h+i-1) {
@@ -302,6 +388,7 @@ void Hinh_Thoi_Rong(int h) {
     *   *   *   *   
 */
 void Hinh_Vuong(int h) {
+    printf ("Hinh_14:\t\n\n");
     for (int i=1; i<=h; i++) {
         for (int j=1; j<=h; j++) {
             printf (" * ");
@@ -318,6 +405,7 @@ void Hinh_Vuong(int h) {
     *   *   *   *
 */
 void Hinh_Vuong_Rong(int h) {
+    printf ("Hinh_15:\t\n\n");
     for (int i=1; i<=h ; i++) {
         printf (" * ");
     }
@@ -348,6 +436,7 @@ void Hinh_Vuong_Rong(int h) {
 
 */
 void Hinh_Binh_Hanh(int h) {
+    printf ("Hinh_16:\t\n\n");
     for (int i = 1; i <= h; i++) {
         for (int j = 1; j <= 2*h - 1; j++) {
             if (j >= h-i+1 && j <= 2*h-i) {
@@ -368,6 +457,7 @@ void Hinh_Binh_Hanh(int h) {
                 *   *   *   *
 */
 void Hinh_Binh_Hanh_Nguoc(int h) {
+    printf ("Hinh_17:\t\n\n");
     for (int i = h; i >=1; i--) {
         for (int j = 1; j <= 2*h - 1; j++) {
             if (j >= h-i+1 && j <= 2*h-i) {
@@ -381,11 +471,38 @@ void Hinh_Binh_Hanh_Nguoc(int h) {
 }
 
 /*
-    *   *   *   *   *
-        *   *   *
-            *
+    1   2   3   4   5   6   7
+    *                       *
+    *   *               *   *
+    *   *   *       *   *   *
+    *   *   *   *   *   *   *
+    *   *   *       *   *   *
+    *   *               *   *
+    *                       * 
 */
-
+void Hinh_Nguoc_Trong_Dong (int h) {
+    printf ("Hinh_18:\t\n\n");
+    for (int i=h; i>=1; i--) {
+        for (int j=2*h-1; j>=1; j--) {
+            if (h-i+1 >= j || j >= h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+    for (int i=2; i<=h; i++) {
+        for (int j=1; j<=2*h-1; j++) {
+            if (h-i+1 >= j || j >= h+i-1) {
+                printf (" * ");
+            } else {
+                printf ("   ");
+            }
+        }
+        printf ("\n");
+    }
+}
 
 int main() {
     int h;
@@ -421,11 +538,17 @@ int main() {
     Hinh_Thoi(h);
     printf ("\n\n\n");
 
-    Hinh_Thoi_Rong(h);
-    printf("\n\n\n");
+    Hinh_Chong_Nhau(h);
+    printf ("\n\n\n");
+
+    Hinh_Chong_Nhau_Rong(h);
+    printf ("\n\n\n");
 
     Hinh_Thoi_Rong_Trong(h);
     printf ("\n\n\n");
+
+    Hinh_Thoi_Rong(h);
+    printf("\n\n\n");
 
     Hinh_Vuong(h);
     printf ("\n\n\n");
@@ -438,6 +561,10 @@ int main() {
 
     Hinh_Binh_Hanh_Nguoc(h);
     printf ("\n\n\n");
+
+    Hinh_Nguoc_Trong_Dong(h);
+    printf ("\n\n\n");
+
 
     return 0;
 }
