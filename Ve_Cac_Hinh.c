@@ -227,6 +227,41 @@ void Hinh_Thoi (int h) {
 }
 
 
+/*
+    *   *   *   *   *   *   *   
+    *   *   *       *   *   *
+    *   *               *   *
+    *                       *
+    *   *               *   *
+    *   *   *       *   *   *
+    *   *   *   *   *   *   *
+*/
+void Hinh_Thoi_Rong_Trong(int h) {
+    for (int i=1; i<=h; i++) {
+        for (int j = 1; j <= 2*h-1; j++) {
+            if (j == h-i+1 || j == h+i-1) {
+                printf ("   ");
+            } else {
+                printf (" * ");
+            }
+        }
+        printf ("\n");
+    }
+    for (int i = h-1; i >=1; i--) {
+        for (int j = 2*h-1; j >=1; j--) {
+            if (j == h-i+1 || j == h+i-1) {
+                printf ("   ");
+            } else {
+                printf (" * ");
+            }
+        }
+        printf ("\n");
+    }
+}
+
+
+
+
 /*  vẽ hình thoi rỗng.
     1   2   3   4   5   6   7
                 *
@@ -237,7 +272,6 @@ void Hinh_Thoi (int h) {
             *       *
                 *
 */
-
 void Hinh_Thoi_Rong(int h) {
     for (int i=1; i<=h; i++) {
         for (int j = 1; j <= 2*h-1; j++) {
@@ -346,6 +380,11 @@ void Hinh_Binh_Hanh_Nguoc(int h) {
     }
 }
 
+/*
+    *   *   *   *   *
+        *   *   *
+            *
+*/
 
 
 int main() {
@@ -354,7 +393,6 @@ int main() {
         printf ("\nNhap vao do dai h = ");
         scanf("%d", &h);
     }while(h < 0 && printf("Nhap lai chieu cao h: "));
-    printf ("\n");
 
     Tam_Giac_Can(h);
     printf ("\n\n\n");
@@ -386,6 +424,9 @@ int main() {
     Hinh_Thoi_Rong(h);
     printf("\n\n\n");
 
+    Hinh_Thoi_Rong_Trong(h);
+    printf ("\n\n\n");
+
     Hinh_Vuong(h);
     printf ("\n\n\n");
 
@@ -398,8 +439,5 @@ int main() {
     Hinh_Binh_Hanh_Nguoc(h);
     printf ("\n\n\n");
 
-
-
-
-
+    return 0;
 }

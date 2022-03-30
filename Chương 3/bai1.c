@@ -9,10 +9,10 @@
 #include<string.h>
 
 int daoNguocSo(int n) {
-    int i=0, res = 0, t;
+    int res = 0, t;
     while(n != 0) {
-        t = n%10;
-        res = res*10 + t;
+        t = n % 10;
+        res = res * 10 + t;
         n /= 10;
     }
     return res;
