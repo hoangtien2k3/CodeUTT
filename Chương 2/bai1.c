@@ -12,6 +12,7 @@
 
 #include<stdio.h>
 #include<string.h>
+#include<conio.h>
 
 struct hodan {
     char ten_chu_ho[20];
@@ -22,6 +23,7 @@ struct hodan {
 } p1[3];
 
 int main() {
+    
     printf ("NHAP VAO THONG TIN 3 HO_DAN: ");
     for (int i=0; i<3; i++) {
         printf ("\nNhap vao ten_chu_ho %d: ", i+1); scanf ("%s", p1[i].ten_chu_ho);
@@ -46,6 +48,9 @@ int main() {
     int Max = (p1[0].thanh_tien > p1[1].thanh_tien) ? p1[0].thanh_tien : p1[1].thanh_tien;
     Max = (Max > p1[2].thanh_tien) ? Max : p1[2].thanh_tien;
     printf ("%d", Max);
+
+
+    getch();
     return 0;
 }
 
