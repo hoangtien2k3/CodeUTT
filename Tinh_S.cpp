@@ -18,3 +18,4 @@ int main() {
     printf ("Tong S = %d", S);
     return 0;
 }
+
