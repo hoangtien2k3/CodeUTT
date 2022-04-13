@@ -41,7 +41,7 @@ int main() {
         }
     }
     for (int i=0; i<3; i++) {
-        printf ("\nThanh_tien cua ho dan %d: ", i+1);
+        printf ("\nThanh_tien cua ho dan %d: ", i + 1);
         printf ("%d ", p1[i].thanh_tien );
     }
     printf ("\nTHONG TIN CHU HO TIEU_THU_DIEN NHIEU NHAT: ");

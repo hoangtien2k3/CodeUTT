@@ -1,4 +1,6 @@
-// in ra các số từ 1 -> 9
+
+// in ra các số từ lẻ 1 -> n
+
 #include<stdio.h>
 
 int main() {
@@ -9,12 +11,11 @@ int main() {
         scanf ("%d", &n);
     } while (n < 0 && printf ("Error, Nhap lai:"));
 
-    for (int i=1; i<=n; i++) {
-        if (i % 2 == 0) {
-            count++;
+    for (int i = 1; i<=n; i++) {
+        if (i & 1) { //! i % 2 == 1 // dùng bitwise AND kiểm tra số lẻ
+            printf ("%d\t", i);
         }
     }
-    printf ("%d", count);
 
     return 0;
 }
