@@ -1,5 +1,5 @@
 
-// a
+// câu 3: a
 #include<stdio.h>
 #include<conio.h>
 #include<math.h>
