@@ -1,5 +1,15 @@
 
-// Bai tap: Hoang Anh Tien - 72DCHT21
+/*  // Bai tap: Hoang Anh Tien - 72DCHT21
+    Nhập vào mảng gồm n phần tử:
+    a. in mảng lên màn hình
+    b. tính tổng các phần tử chẵn
+    c. đếm các phần tử lẻ
+    d. tính TBC các số chia hết cho 3
+    e. in lên màn hình các số có giá trị âm
+    f. in ra số có giá trị lớn nhất
+    g. in ra số có giá trị bé nhất
+    h. sắp xếp mảng tăng dần
+*/
 
 #include<stdio.h>
 #include<conio.h>
