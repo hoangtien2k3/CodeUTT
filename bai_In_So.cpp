@@ -15,7 +15,6 @@ void Fine_Element_Array () {
             }
         }
     }
-
 }
 
 int main() {

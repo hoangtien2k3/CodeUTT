@@ -84,7 +84,7 @@ int So_Co_Gia_Tri_Nho_Nhat(int arr[], int n) {
 }
 
 void Sap_Xep_Mang_Tang_Dan(int arr[], int n) {
-    printf("\nh. Mang Sap Xep Theo Thu Tu Tang Dan:\t");
+    printf("\nh. Mang Sap Xep Theo Thu Tu Tang Dan:\t"); // bubbleSort
     for(int i = 0; i < n-1; i++) {
         for(int j = n - 1; j > i; j--) {
             if (arr[j] < arr[j - 1]) {
@@ -118,6 +118,8 @@ int main() {
     printf("\nf. Gia Tri Lon Nhat:\t %d", So_Co_Gia_Tri_Lon_Nhat(arr, n));
     printf("\ng. Gia Tri Be Nhat:\t %d", So_Co_Gia_Tri_Nho_Nhat(arr, n));
     Sap_Xep_Mang_Tang_Dan(arr, n);
-
+    
     return 0;
 }
+
+
