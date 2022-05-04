@@ -3,6 +3,7 @@
 /*
 
 
+
     e. đến cố nguyên tố trong mảng
     f. sắp sếp mảng tăng dần hoạc giâm dần
     g. đến số lần xuất hiện của số n bất kỳ trong mảng
@@ -10,12 +11,12 @@
 
 
 */  
-
 #include<stdio.h>
 #include<conio.h>
 #include<math.h>
 #include<stdlib.h>
 #include<stdbool.h>
+#include<algorithm>
 
 void Print_Array(int m, int n, int arr[][100]) {
     printf("Elements Array 2: \n");
@@ -99,26 +100,9 @@ int CountPrime(int m, int n, int arr[][100]) {
     return count;
 }
 
-// e. đếm số nguyên tố trong mảng
-int CountPrime_Array (int m, int m, int arr[][100]) {
-
-    for(int i=0; i<m; i++) {
-        for(int j=0; j <n; j++) {
-            if (arr[i][j] % 2 != 0) {
-                count++;
-            }
-        }
-    }
-
-
-
-    return count;
-}
-
 
 // sắp xếp mảng 2 chiều tăng dần theo hàng
 void Swap_Tang_BubbleSort(int m, int n, int arr[][100]) {
-
     for(int k=0; k<m; k++) {
         for(int i=0; i<n - 1; i++) {
             for(int j= n - 1; j > i; j--) {
@@ -130,14 +114,12 @@ void Swap_Tang_BubbleSort(int m, int n, int arr[][100]) {
             }
         } 
     }
-
     for(int i=0; i<m; i++) {
         for(int j=0; j<n; j++) {
             printf("%d\t", arr[i][j]);
         }
         printf("\n");
     }
-
 }
 
 
@@ -153,7 +135,6 @@ int Swap_Array_2_Tang (int m, int n, int arr[][100]){
             }
         }
     }
-
     for(int i=0; i<m; i++) {
         for(int j=0; j<n; j++) {
             printf("%d\t", arr[i][j]);
@@ -162,8 +143,45 @@ int Swap_Array_2_Tang (int m, int n, int arr[][100]){
     }
 }
 
+// sắp xếp mảng tăng dần
+void sapXepTang(int m, int n, int arr[][100]){
+	int k = m * n;
+	for(int i = 0; i < k - 1; i++){
+		for(int j = i + 1; j < k; j++){
+			if(arr[i / n][i % n] > arr[j / n][j % n]){
+				int temp  = arr[i / n][i % n];
+				arr[i / n][i % n] = arr[j / n][j % n];
+				arr[j / n][j % n] = temp;
+			}
+		}
+	}
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            printf("%d\t", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 
+
+// g. đếm số lần xuất hiên của số x bất kỳ trong mảng
+int X_Xuat_Hien_Trong_Mang(int m, int n, int arr[][100]) {
+    int x, count = 0;
+    printf("\nNhap vao x = "); scanf("%d", &x);
+    for(int i=0; i<m; i++) {
+        for(int j=0; j<n; j++) {
+            if (arr[i][j] == x) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+
+
+// xóa phần tử trong mảng
 
 
 
@@ -197,7 +215,6 @@ int main() {
     int m, n;
     int arr[100][100];
     printf("Nhap vao m, n: "); scanf("%d%d", &m, &n);
-
     for(int i=0; i<m; i++) { // O(n^2)
         for(int j=0; j<n; j++) {
             printf("arr[%d][%d] = ", i, j);
@@ -211,14 +228,16 @@ int main() {
     printf("\nElements Max Array:\t %d", Elements_Max_Array(m, n, arr));
     printf("\nTong Cac Phan Tu Tren Duong Cheo Chinh:\t %d", Tong_Phan_Tu_Tren_Duong_Cheo_Chinh(m, n, arr));
 
-
     printf("\nCountPrime: \t%d\n", CountPrime(m, n, arr));
 
     printf("Mang tang dan theo hang: \n");
     Swap_Tang_BubbleSort(m, n, arr);
 
     printf("Mang sap xep tang dan: \n");
-    Swap_Array_2_Tang(m, n, arr);
+    sapXepTang(m, n, arr);
+
+    printf("\nSo x xuat hien trong mang la:\t %d", X_Xuat_Hien_Trong_Mang(m, n, arr));
+
 
 
     return 0;
