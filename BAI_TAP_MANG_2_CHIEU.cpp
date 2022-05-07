@@ -104,8 +104,8 @@ int CountPrime(int m, int n, int arr[][100]) {
 // sắp xếp mảng 2 chiều tăng dần theo hàng
 void Swap_Tang_BubbleSort(int m, int n, int arr[][100]) {
     for(int k=0; k<m; k++) {
-        for(int i=0; i<n - 1; i++) {
-            for(int j= n - 1; j > i; j--) {
+        for(int i = 0; i < n - 1; i++) {
+            for(int j = n - 1; j > i; j--) {
                 if (arr[k][j] < arr[k][j-1]) {
                     int temp = arr[k][j];
                     arr[k][j] = arr[k][j-1];
@@ -124,32 +124,11 @@ void Swap_Tang_BubbleSort(int m, int n, int arr[][100]) {
 
 
 // sắp xếp mảng tăng dần
-int Swap_Array_2_Tang (int m, int n, int arr[][100]){
-    int p = m * n;
-    for(int i=0; i<m-1; i++) {
-        for(int j = i+ 1; j<n ; j++) {
-            if (arr[i/n][i%n] > arr[j/n][j%n]) {
-                int temp = arr[i/n][i%n];
-                arr[i/n][i%n] = arr[j/n][j%n];
-                arr[j/n][j%n] = temp;
-            }
-        }
-    }
-    for(int i=0; i<m; i++) {
-        for(int j=0; j<n; j++) {
-            printf("%d\t", arr[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-// sắp xếp mảng tăng dần
 void sapXepTang(int m, int n, int arr[][100]){
-	int k = m * n;
-	for(int i = 0; i < k - 1; i++){
-		for(int j = i + 1; j < k; j++){
+	for(int i = 0; i < m * n - 1; i++){
+		for(int j = i + 1; j < m * n; j++){
 			if(arr[i / n][i % n] > arr[j / n][j % n]){
-				int temp  = arr[i / n][i % n];
+				int temp  = arr[i / n][i % n]; // i/n để lấy ra vị trí hàng // i%n để lấy ra vị trí cột
 				arr[i / n][i % n] = arr[j / n][j % n];
 				arr[j / n][j % n] = temp;
 			}
@@ -178,37 +157,6 @@ int X_Xuat_Hien_Trong_Mang(int m, int n, int arr[][100]) {
     }
     return count;
 }
-
-
-
-// xóa phần tử trong mảng
-
-
-
-// số lần xuất hiện của các phần tử trong mảng
-// void Count_Element_Array () {
-//     in brr[100][100], count;
-//     for(int i=0; i<m; i++) {
-//         for(int j=0; j<n; j++) {
-//             brr[i][j] = 1;
-//         }
-//     }
-    
-//     for (int i=0; i<m; i++) {
-//         for(int j=0; j<n; j++) {
-//             if (brr[i][j]) {
-//                 count = 1;
-//                 for (int j=i+1; j<n; j++) {
-//                     if (arr[i] == arr[j]) {
-//                         count++;
-//                         brr[j] = 0;
-//                     }
-//                 }
-//                 printf ("\nGia tri %d xuat hien %d lan!", arr[i], count);
-//             }
-//         }
-//     }
-// }
 
 
 int main() {
