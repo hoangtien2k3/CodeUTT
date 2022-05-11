@@ -23,7 +23,6 @@ struct hodan {
 } p1[3];
 
 int main() {
-    
     printf ("NHAP VAO THONG TIN 3 HO_DAN: ");
     for (int i=0; i<3; i++) {
         printf ("\nNhap vao ten_chu_ho %d: ", i+1); scanf ("%s", p1[i].ten_chu_ho);
