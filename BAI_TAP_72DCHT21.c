@@ -83,6 +83,8 @@ int So_Co_Gia_Tri_Nho_Nhat(int arr[], int n) {
     return min;
 }
 
+
+
 void Sap_Xep_Mang_Tang_Dan(int arr[], int n) {
     printf("\nh. Mang Sap Xep Theo Thu Tu Tang Dan:\t"); // bubbleSort
     for(int i = 0; i < n-1; i++) {
