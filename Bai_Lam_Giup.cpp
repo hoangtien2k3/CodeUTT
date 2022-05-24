@@ -12,7 +12,7 @@ void nhapmatran(int a[][MAX], int &n)
 	{
 		printf("\nNhap n: ");
 		scanf("%d",&n);
-	}while(n<=0 || n>MAX);
+	} while(n<=0 || n>MAX);
 	for(int i=0;i<n;i++) {
 		for(int j=0;j<n;j++)
 		{

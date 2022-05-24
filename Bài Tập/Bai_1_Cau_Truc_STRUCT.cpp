@@ -59,13 +59,13 @@ void Print_tuoi(int n, NhanVien nv[]) {
 
 
 // c. in ra Nhân Viên có manv = "001"
-void Check_Manv(int n, NhanVien nv[]) {
-    for(int i=0; i<n; i++) {
-        if (nv[i].manv == "001") {
-            Print_Thong_Tin(i, nv);
-        }
-    }
-}
+// void Check_Manv(int n, NhanVien nv[]) {
+//     for(int i=0; i<n; i++) {
+//         if (nv[i].manv == "001") {
+//             Print_Thong_Tin(i, nv);
+//         }
+//     }
+// }
 
 
 int main() {
@@ -81,7 +81,7 @@ int main() {
 
     Information_NhanVien(n, nv);
     Print_tuoi(n, nv);
-    Check_Manv(n, nv);
+    // Check_Manv(n, nv);
 
     return 0;
 }
