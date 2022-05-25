@@ -29,17 +29,20 @@ void Print_Line(int n) {
     printf("\n");
 }
 
+
 void Print_Thong_Tin(int i, NhanVien nv[]) {
-    printf("\nManv nhan vien %d: %s", i + 1, nv[i].manv);
-    printf("\nHoten nhan vien %d: %s", i + 1, nv[i].hoten);
-    printf("\nTuoi nhan vien %d: %d", i + 1, nv[i].tuoi);
+    printf("\t\t%s", nv[i].manv);
+    printf("\t\t\t%s", nv[i].hoten);
+    printf("\t\t\t%d", nv[i].tuoi);
 }
 
 // a. in thông tin nhân viên ra màn hình
 void Information_NhanVien(int n, NhanVien nv[]) {
     Print_Line(100);
     printf("THONG TIN CAC NHAN VIEN: ");
+    printf("\nSTT\t\tMASV\t\t\tHO TEN\t\t\t\tTUOI");
     for(int i=0; i<n; i++) {
+        printf("\n %d", i + 1);
         Print_Thong_Tin(i, nv);
         printf("\n");
     }
@@ -49,8 +52,10 @@ void Information_NhanVien(int n, NhanVien nv[]) {
 // b. in các thông tin có  tuổi tư 55 - 60
 void Print_tuoi(int n, NhanVien nv[]) {
     printf("NHAN VIEN CO TUOI TU 50 - 60t: ");
+    printf("\nSTT\t\tMASV\t\t\tHO TEN\t\t\t\tTUOI");
     for(int i=0; i<n; i++) {
         if (nv[i].tuoi >= 55 && nv[i].tuoi <= 60) {
+            printf("\n %d", i + 1);
             Print_Thong_Tin(i, nv);
         }
     }
@@ -59,20 +64,24 @@ void Print_tuoi(int n, NhanVien nv[]) {
 
 
 // c. in ra Nhân Viên có manv = "001"
-// void Check_Manv(int n, NhanVien nv[]) {
-//     for(int i=0; i<n; i++) {
-//         if (nv[i].manv == "001") {
-//             Print_Thong_Tin(i, nv);
-//         }
-//     }
-// }
+void Check_Manv(int n, NhanVien nv[]) {
+    printf("Nhap vien co ma 001:" );
+    printf("\nSTT\t\tMASV\t\t\tHO TEN\t\t\t\tTUOI");
+    char manv1[] = "001";
+    for(int i=0; i<n; i++) {
+        if (strcmpi(manv1, nv[i].manv) == 0) {
+            printf("\n %d", i + 1);
+            Print_Thong_Tin(i, nv);
+        }
+    }
+}
 
 
 int main() {
     NhanVien nv[100];
     int n; // nhập vao số lượng nhân viên
     printf("Nhap vao so Nhan Vien: "); scanf("%d", &n);
-    for(int i = 0; i < n; i++) { // nhập vào thông tin nhân viên
+    for(int i = 0; i < n; i++) { // nhập vào thông tin nhân viên.
         fflush(stdin);
         printf("\nNhap vao manv %d: ", i + 1); gets(nv[i].manv);
         printf("Nhap vao hoten: %d: ", i + 1); gets(nv[i].hoten);
@@ -81,7 +90,7 @@ int main() {
 
     Information_NhanVien(n, nv);
     Print_tuoi(n, nv);
-    // Check_Manv(n, nv);
+    Check_Manv(n, nv);
 
     return 0;
 }
