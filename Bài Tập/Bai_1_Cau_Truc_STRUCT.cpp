@@ -20,15 +20,12 @@ typedef struct NhanVien {
     int tuoi;
 } NhanVien;
 
-
 void Print_Line(int n) {
     printf("\n");
-    for(int i=0; i<n; i++) {
+    for(int i=0; i<n; i++)
         printf("_");
-    }
     printf("\n");
 }
-
 
 void Print_Thong_Tin(int i, NhanVien nv[]) {
     printf("\t\t%s", nv[i].manv);
@@ -39,19 +36,18 @@ void Print_Thong_Tin(int i, NhanVien nv[]) {
 // a. in thông tin nhân viên ra màn hình
 void Information_NhanVien(int n, NhanVien nv[]) {
     Print_Line(100);
-    printf("THONG TIN CAC NHAN VIEN: ");
+    printf("\t\t\t---THONG TIN CAC NHAN VIEN--- ");
     printf("\nSTT\t\tMASV\t\t\tHO TEN\t\t\t\tTUOI");
     for(int i=0; i<n; i++) {
         printf("\n %d", i + 1);
         Print_Thong_Tin(i, nv);
-        printf("\n");
     }
     Print_Line(100);
 }
 
 // b. in các thông tin có  tuổi tư 55 - 60
 void Print_tuoi(int n, NhanVien nv[]) {
-    printf("NHAN VIEN CO TUOI TU 50 - 60t: ");
+    printf("\t\t\t---NHAN VIEN CO TUOI TU 50 - 60t--- ");
     printf("\nSTT\t\tMASV\t\t\tHO TEN\t\t\t\tTUOI");
     for(int i=0; i<n; i++) {
         if (nv[i].tuoi >= 55 && nv[i].tuoi <= 60) {
@@ -65,15 +61,16 @@ void Print_tuoi(int n, NhanVien nv[]) {
 
 // c. in ra Nhân Viên có manv = "001"
 void Check_Manv(int n, NhanVien nv[]) {
-    printf("Nhap vien co ma 001:" );
+    printf("\t\t\t---NHAN VIEN CO MA [001]--- " );
     printf("\nSTT\t\tMASV\t\t\tHO TEN\t\t\t\tTUOI");
     char manv1[] = "001";
     for(int i=0; i<n; i++) {
-        if (strcmpi(manv1, nv[i].manv) == 0) {
+        if (strcmp(manv1, nv[i].manv) == 0) {
             printf("\n %d", i + 1);
             Print_Thong_Tin(i, nv);
         }
     }
+    Print_Line(100);
 }
 
 
