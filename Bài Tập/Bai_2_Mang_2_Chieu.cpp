@@ -15,8 +15,19 @@
 #include<string.h>
 #include<stdlib.h>
 
+
+void Nhap_Ma_Tran(int m, int n, int **arr) {
+    for(int i=0; i<m; i++) {
+        for(int j=0; j<n; j++) {
+            printf("arr[%d][%d] = ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+}
+
+
 // a. in mảng
-void In_Mang(int m, int n, int arr[][100]) {
+void In_Mang(int m, int n, int **arr) {
     printf("\nMang Vua Nhap: \n");
     for(int i=0; i<m; i++) {
         for(int j=0; j<n; j++) {
@@ -27,7 +38,7 @@ void In_Mang(int m, int n, int arr[][100]) {
 } 
 
 //  b. Tính tổng các số lẻ là số âm
-int Tong_So_Le_Am(int m, int n, int arr[][100]) {
+int Tong_So_Le_Am(int m, int n, int **arr) {
     int sum = 0;
     for(int i=0; i<m; i++) {
         for(int j=0; j<n; j++) {
@@ -40,7 +51,7 @@ int Tong_So_Le_Am(int m, int n, int arr[][100]) {
 }
 
 //  c. Đếm phần tử có tận cùng bằng 3
-int Dem_Phan_Tu_Le(int m, int n, int arr[][100]) {
+int Dem_Phan_Tu_Le(int m, int n, int **arr) {
     int count = 0;
     for(int i=0; i<m; i++) {
         for(int j=0; j<n; j++) {
@@ -53,7 +64,7 @@ int Dem_Phan_Tu_Le(int m, int n, int arr[][100]) {
 }
 
 // d. Tính tổng các phần tử nằm phía trên đường chéo chính ( tam giác trên )
-int Tong_Phan_Tu_Tren_Duong_Cheo_Chinh(int m, int n, int arr[][100]) {
+int Tong_Phan_Tu_Tren_Duong_Cheo_Chinh(int m, int n, int **arr) {
     int sum = 0;
     for(int i=0; i<m; i++) {
         for(int j=0; j<n; j++) {
@@ -66,7 +77,7 @@ int Tong_Phan_Tu_Tren_Duong_Cheo_Chinh(int m, int n, int arr[][100]) {
 }
 
 // e. Tính tổng các phần tử trên cột k ( với k nhập từ bàn phím )
-int Tong_Phan_Tu_Tren_Cot_K(int m, int n, int arr[][100]) {
+int Tong_Phan_Tu_Tren_Cot_K(int m, int n, int **arr) {
     int k, sum = 0;
     printf("\nNhap vao cot k: "); scanf("%d", &k);
     for(int i=0; i<m; i++) {
@@ -76,7 +87,7 @@ int Tong_Phan_Tu_Tren_Cot_K(int m, int n, int arr[][100]) {
 }
 
 // f. sắp xếp mảng giảm đần
-void Sap_Xep_Mang_Giam_Dan(int m, int n, int arr[][100]) {
+void Sap_Xep_Mang_Giam_Dan(int m, int n, int **arr) {
     for(int i=0; i < m*n-1; i++) {
         for(int j = i + 1; j < m * n; j++) {
             if (arr[i/n][i%n] < arr[j/n][j%n]) {
@@ -94,16 +105,18 @@ void Sap_Xep_Mang_Giam_Dan(int m, int n, int arr[][100]) {
     }
 }
 
+
+
 int main() {
     int m, n;
-    int arr[100][100];
+    // int arr[100][100];
     printf("Nhap vao m, n: "); scanf("%d%d", &m, &n);
-    for(int i = 0; i < m; i++) {
-        for(int j = 0; j < n; j++) {
-            printf("arr[%d][%d] = ", i, j);
-            scanf("%d", &arr[i][j]);
-        }
+    int **arr = (int**) malloc(sizeof(int*) * m);
+    for(int i=0; i<m; i++) {
+        arr[i] = (int*) malloc(sizeof(int) * n);
     }
+    
+    Nhap_Ma_Tran(m, n, arr);
 
     In_Mang(m, n, arr);
     printf("\nTong Cac Phan Tu Le va La So Am: %d", Tong_So_Le_Am(m, n, arr));

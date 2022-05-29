@@ -89,11 +89,9 @@ int main() {
     char str[100];
     printf("Nhap vao chuoi str: "); fflush(stdin);
     gets(str);
-
     printf("\nChuoi Da Xoa: [%s]", Chuan_Hoa_Chuoi(str));
     printf("\nSo tu cua chuoi: %d", Dem_Tu(str));
     printf("\nDoi thanh ky tu HOA: %s", Ky_Tu_Hoa(str));
     printf("\nDao Nguoc Tu: %s",  daoNguocTuCoTrongChuoi(str));
-
     return 0;
 }
