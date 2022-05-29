@@ -1,5 +1,5 @@
 
-// câu 3: a - HOÀNG ANH TIẾN -72DCHT21
+
 #include<stdio.h>
 #include<math.h>
 #include<conio.h>

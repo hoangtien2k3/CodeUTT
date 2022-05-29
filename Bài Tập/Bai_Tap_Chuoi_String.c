@@ -15,26 +15,63 @@
 #include<conio.h>
 
 // a
+// Cách 1: dùng hàm strcpy
+// char *Xoa_Khoang_Trang(char *str) {
+//     int length = strlen(str);
+//     while(str[0] == ' ') {
+//         strcpy(&str[0], &str[1]);
+//         str[length-- -1] = '\0';
+//     }
+//     for(int i=0; i<length-1; i++) {
+//         if (str[i] == ' ' && str[i + 1] == ' ') {
+//             strcpy(&str[i], &str[i + 1]);
+//             i--;
+//             str[length-- -1] = '\0';
+//         }
+//     }
+//     while(str[length - 1] == ' ') {
+//         strcpy(&str[length - 1], &str[length]);
+//         str[length-- -1] = '\0';
+//     } 
+//     return str;
+// }
 
-char *Xoa_Khoang_Trang(char *str) {
-    int length = strlen(str);
-    while(str[0] == ' ') {
-        strcpy(&str[0], &str[1]);
-        str[length-- -1] = '\0';
+
+
+// a
+// Cách 2: dùng đổi chỗ thông thường
+char xoa(char *a, int vt)
+{
+    int n = strlen(a);
+    for (int i = vt; i <= n; i++)
+    {
+        a[i] = a[i + 1];
     }
-    for(int i=0; i<length-1; i++) {
-        if (str[i] == ' ' && str[i + 1] == ' ') {
-            strcpy(&str[i], &str[i + 1]);
+    n--;
+    return 0;
+}
+
+char *Xoa_Khoang_Trang(char *a)
+{
+    int i, n=strlen(a);
+    for (i = 0; i < n; i++){
+        if (a[0] == ' ') {
+            xoa(a, 0);
+            n--;
+        }
+        if (a[i] == ' ' && a[i + 1] == ' ') {
+            xoa(a, i);
             i--;
-            str[length-- -1] = '\0';
+            n--;
+        }
+        if (a[n-1] == ' ') {
+            xoa(a, n-1);
+            n--;
         }
     }
-    while(str[length - 1] == ' ') {
-        strcpy(&str[length - 1], &str[length]);
-        str[length-- -1] = '\0';
-    }
-    return str;
+    return a;
 }
+
 
 
 // b.
@@ -83,16 +120,17 @@ char *Dao_Nguoc_Tu_Trong_Chuoi(char *str) {
     return new_string;
 }
 
+
+
+
 int main() {
     char str[100];
     printf("Nhap vao chuoi: "); gets(str);
-    
     
     printf("\nChuoi Da Xoa Khoang Trang: [%s]", Xoa_Khoang_Trang(str));
     printf("\nKy Tu Hoa: %s", Ky_Tu_Hoa(str));
     printf("\nSo Ky Tu Trong Chuoi: %d", Dem_So_Tu(str));
     printf("\nDao Tu Trong Chuoi: %s", Dao_Nguoc_Tu_Trong_Chuoi(str));
-
 
     return 0;
 }
