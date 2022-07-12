@@ -4,6 +4,7 @@
     b. Đếm xem chuỗi có bao nhiêu từ.
     c. đổi ký tự thường thành ký tự hoa.
     d. đảo ngược các từ trong chuỗi.
+    e. Kiểm tra xâu đôi xứng.
 */
 
 #include<stdio.h>
@@ -11,6 +12,7 @@
 #include<string.h>
 #include<conio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 // a. xóa các ký tự khoảng trắng và mỗi từ cách nhau 1 dấu cách.
 char *Chuan_Hoa_Chuoi(char *str) {
@@ -18,7 +20,7 @@ char *Chuan_Hoa_Chuoi(char *str) {
     // xóa khoảng trắng ở vị trí đầu chuỗi.
     while(str[0] == ' ') {
         strcpy(&str[0], &str[1]);
-        str[length-- - 1] = '\0'; // length--;
+        length--;
     }
     // xóa khoản trắng ở vị trí thân chuỗi
     for(int i=0; i<strlen(str) - 1; i++) {
@@ -85,13 +87,33 @@ char *daoNguocTuCoTrongChuoi(char *S) {
 }
 
 
+// e. kiểm tra xâu đối xứng.
+bool Kiem_Tra_Chuoi_Doi_Xung(char *str) {
+    for(int i=0; i<=strlen(str)/2; i++) {
+        if (str[i] != str[strlen(str) - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
 int main() {
     char str[100];
     printf("Nhap vao chuoi str: "); fflush(stdin);
     gets(str);
+
     printf("\nChuoi Da Xoa: [%s]", Chuan_Hoa_Chuoi(str));
     printf("\nSo tu cua chuoi: %d", Dem_Tu(str));
     printf("\nDoi thanh ky tu HOA: %s", Ky_Tu_Hoa(str));
     printf("\nDao Nguoc Tu: %s",  daoNguocTuCoTrongChuoi(str));
+
+    if (Kiem_Tra_Chuoi_Doi_Xung(str)) {
+        printf("\nChuoi la doi xung!!!");
+    } else {
+        printf ("\nChuoi khong phai doi xung!!!");
+    }
+    
     return 0;
 }

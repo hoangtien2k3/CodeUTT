@@ -70,7 +70,7 @@ int main() {
         scanf ("%f", &n);
     } while (n < 0 && printf ("Loi, Nhap lai n: "));
 
-    printf ("Tong P = %f", Tinh_P(x, n));
+    printf ("Tong P = %3.4f", Tinh_P(x, n));
 
     return 0;
 }

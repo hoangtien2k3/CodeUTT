@@ -6,7 +6,7 @@
         c. Đếm phần tử có tận cùng bằng 3
         d. Tính tổng các phần tử nằm phía trên đường chéo chính ( tam giác trên )
         e. Tính tổng các phần tử trên cột k ( với k nhập từ bàn phím )
-        f. sắp xếp mảng giảm đần
+        f. sắp xếp mảng giảm đần.
 
 */
 
@@ -109,7 +109,6 @@ void Sap_Xep_Mang_Giam_Dan(int m, int n, int **arr) {
 
 int main() {
     int m, n;
-    // int arr[100][100];
     printf("Nhap vao m, n: "); scanf("%d%d", &m, &n);
     int **arr = (int**) malloc(sizeof(int*) * m);
     for(int i=0; i<m; i++) {
@@ -125,6 +124,12 @@ int main() {
     printf("\nTong Cac Phan Tu Tren Cot K: %d", Tong_Phan_Tu_Tren_Cot_K(m, n, arr));
     printf("\nSap Xep Mang Giam Dan: \n");
     Sap_Xep_Mang_Giam_Dan(m, n, arr);
+
+
+    for(int i=0 i<m; i++) {
+        free(arr[i]);
+    }
+    free(arr);
 
     return 0;
 }

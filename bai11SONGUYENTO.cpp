@@ -12,6 +12,7 @@ int main() {
         printf ("\nNhap vao n = ");
         scanf ("%d", &n);
     } while (n < 0 &&  printf ("Error:, nhap lai n:"));
+    
     if (n < 2 ) {
         printf ("%d la so nguyen to", n);
         return 0;

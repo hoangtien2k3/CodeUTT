@@ -1,1 +1,0 @@
-    // Check_Manv(n, nv);
